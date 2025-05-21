@@ -61,12 +61,19 @@ class SparseMatrix:
                 result.setElement(r1, c2, result.getElement(r1, c2) + v1 * other.getElement(c1, c2))
         return result
 
+    def save_to_file(self, filePath):
+        with open(filePath, 'w') as f:
+            f.write(f"rows={self.numRows}\n")
+            f.write(f"cols={self.numCols}\n")
+            for (r, c), v in self.elements.items():
+                f.write(f"({r}, {c}, {v})\n")
+
 def user_interface():
     operation = input("Choose operation: add, subtract, multiply: ").strip().lower()
     if operation not in ['add', 'subtract', 'multiply']:
         raise ValueError("Invalid operation")
-    matrix1 = SparseMatrix('path_to_matrix1.txt')
-    matrix2 = SparseMatrix('path_to_matrix2.txt')
+    matrix1 = SparseMatrix('input_files/sample-03')
+    matrix2 = SparseMatrix('input_files/sample-03')
     if operation == 'add':
         result = matrix1.add(matrix2)
     elif operation == 'subtract':
