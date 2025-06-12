@@ -91,7 +91,7 @@ def MultiplicationOfMatrices(mat1, mat2):
 
 def main():
     try:
-        # Correct file paths relative to script
+
         matrixOnePath = "../../sample_inputs/easy_sample_03_1.txt"
         matrixTwoPath = "../../sample_inputs/easy_sample_03_2.txt"
 
